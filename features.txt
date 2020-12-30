@@ -1,0 +1,15 @@
+1 -> Boton de regresar    - Yosh
+2 -> Areglar views de los videojuegos   - Yosh
+4 -> agregar productos   - Azael
+5 -> eliminar productos  - Azael
+6 -> editar productos
+7 -> filtrar por precio   - Jessica
+8 -> filtrar por consola  - Jessica
+9 -> filtrar por genero   -  Jessica
+10 -> descripcion del videojuego  -Azael
+11 -> Agregar panel de administracion  - Yosh
+12 -> Arreglar las pestañas de navegacion
+13 -> Arreglar alertas
+14 -> Seccion de ofertas   - Juan Carlos
+15 -> Agregar ofertas     - Juan Carlos
+16 -> Eliminar ofertas   - Juan Carlos

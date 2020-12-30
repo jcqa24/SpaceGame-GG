@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Title -->
+    <title>Inicio de Sesión</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div id="container p-4">
+        <form>
+            <center>
+                <div class="card border-secondary mb-3" style="max-width: 35rem;">
+                    <div class="card-header">Iniciar Sesión</div>
+                    <div class="card-body">
+
+                        <!-- Username -->
+                        <div class="form-group">
+                            <label for="exampleInputUsuario">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <h3>Usuario</h3>
+                                    </font>
+                                </font>
+                            </label>
+                            <input type="Ususario" class="form-control" id="exampleInputUsuario"
+                                aria-describedby="usuarioHelp" placeholder="Ingrese usuario">
+                            <small id="usuarioHelp" class="form-text text-muted">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <p>Nunca compartiremos su usuario con nadie más.</p>
+                            </small>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">
+                                <h3>Contraseña</h3>
+                            </label>
+                            <input type="password" class="form-control" id="exampleInputPassword"
+                                placeholder="Contraseña">
+                        </div>
+                        <!-- Check boton  -->
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheckUsuario" checked="">
+                                <label class="custom-control-label" for="customCheckUsuario">Recordar Usuario</label>
+                            </div>
+                            <!-- #Boton de inicio -->
+                            <button type="submit" class="btn btn-primary" onclick="validarInicio()">Iniciar Sesión</button>
+                        </div>
+
+                    </div>
+                </div>
+            </center>
+
+        </form>
+
+    </div>
+</body>
+
+</html>

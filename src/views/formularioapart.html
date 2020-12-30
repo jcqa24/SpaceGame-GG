@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Apartados </title>
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Space Of Games</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="infovj.html">Catálogo Principal<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ranking.html">Ranking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://goo.gl/maps/3vLx4HmzjkZ1cnAW8">Ubicanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="listvideoj.html">Gestion Videojuegos </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="listformularios.html.html">Historial de Ventas y Apartados</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Videojuego">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<body>
+
+    <h1> Formulario de Apartado </h1>
+    <form>
+        <fieldset>
+            <div class="form-group row">
+                <label class="col-form-label" for="inputCliente">  Cliente: </label>
+                <input type="text" class="form-control" placeholder="Nombre del Cliente" id="inputCliente">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="exampleTextarea">Productos</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+            </div>
+
+            <br>
+
+            <div class="form-group row">
+                <label class="col-form-label" for="inputFecha">  Fecha: </label>
+                <input type="text" class="form-control" placeholder="aaaa/mm/dd" id="inputFecha">
+            </div>
+
+            <br>
+
+            <div class="form-group row">
+                <label class="col-form-label" for="inputVendedor">  Vendedor: </label>
+                <input type="text" class="form-control" placeholder="Nombre del Vendedor" id="inputVendedor">
+            </div>
+
+
+            <br>
+
+            <div class="form-group">
+                <label class="control-label">Deposito</label>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label class="control-label">Adeudo</label>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label class="control-label">Total</label>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success"> Guardar </button>
+        </fieldset>
+    </form>
+
+
+</body>
+
+</html>

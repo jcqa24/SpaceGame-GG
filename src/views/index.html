@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Space of Games</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='css\bootstrap.min.css'>
+    
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Space Of Games</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Catálogo Principal<span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ranking.html">Ranking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://goo.gl/maps/3vLx4HmzjkZ1cnAW8">Ubicanos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="alertas.html">Alertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listvideoj.html">Gestion Videojuegos </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listformularios.html">Historial de Ventas y Apartados</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Videojuego">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+</header>
+
+<body>
+    <div class="row">
+        <div class="col" style="max-width: 15%;">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="exampleSelect1">Ordenar por:</label>
+                    <select class="form-control" id="exampleSelect1" aria-placeholder="Ordenar">
+                  <option>A-Z</option>
+                  <option>Z-A</option>
+                  <option>Mayor Precio</option>
+                  <option>Menor Precio</option>
+                  <option>Año Ascendente</option>
+                  <option>Año Descendente</option>
+                </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <h4>Filtrar por: </h4>
+                <br>
+                <h5>Precio entre: </h5>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
+                    <label class="custom-control-label" for="customCheck1">$500 - $1000</label>
+                </div>
+                <br>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2" checked="">
+                    <label class="custom-control-label" for="customCheck2">$1001 - $2000</label>
+                </div>
+                <br>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck3" checked="">
+                    <label class="custom-control-label" for="customCheck3">Más de $2000</label>
+                </div>
+                <br>
+                <h5>Consolas: </h5>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck4" checked="">
+                    <label class="custom-control-label" for="customCheck4">PlayStation</label>
+                </div>
+                <br>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck5" checked="">
+                    <label class="custom-control-label" for="customCheck5">Xbox</label>
+                </div>
+                <br>
+                <h5>Genero: </h5>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck6" checked="">
+                    <label class="custom-control-label" for="customCheck6">Rol de acción</label>
+                </div>
+                <br>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck7" checked="">
+                    <label class="custom-control-label" for="customCheck7">Plataforma</label>
+                </div>
+                <br>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck8" checked="">
+                  <label class="custom-control-label" for="customCheck8">Supervivencia</label>
+                  </div>
+                  <br>
+          </div>
+      </div>
+      <div class="col" style="width: 20%;">
+          
+          <table class="table table-hover">
+              <tbody>
+                  <tr class="table-active">
+                    <td>
+                      <center><img src="https://images-na.ssl-images-amazon.com/images/I/51IWXMv0oYL._SX385_.jpg" width="140p" height="190p">
+                      <br>
+                      <a class="nav-link" href="infovj.html">
+                        <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                      </a>
+                      <br>
+                      </center>
+                    </td>
+                    <td>
+                      <center><img src="https://www.gamecool.mx/wp-content/uploads/2017/09/CRASH-BANDICOOT-N-SANE-TRILOGY-PS4.jpg" width="140p" height="190p">
+                      <br>
+                      <a class="nav-link" href="infovj.html">
+                        <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                      </a>
+                      <br>
+                      </center>
+                    </td>
+                    <td>
+                      <center><img src="https://images-na.ssl-images-amazon.com/images/I/71Qbt1%2B-YhL._SX385_.jpg" width="140p" height="190p">
+                      <br>
+                      <a class="nav-link" href="infovj.html">
+                        <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                      </a>
+                      <br>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr class="table-active">
+                      <td>
+                        <center><img src="https://dgaevo.com/wp-content/uploads/2019/02/Cover-6.jpg" width="140p" height="190p">
+                          <br>
+                          <a class="nav-link" href="infovj.html">
+                            <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                          </a>
+                          <br>
+                        </center>
+                      </td>
+                      <td>
+                        <center><img src="https://as01.epimg.net/meristation/imagenes/2018/07/11/game_cover/907652701531297916.jpg" width="140p" height="190p">
+                          <br>
+                          <a class="nav-link" href="infovj.html">
+                            <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                          </a>
+                          <br>
+                        </center>
+                      </td>
+                      <td>
+                        <center><img src="https://media.vandal.net/m/49097/ori-and-the-will-of-the-wisps-20201319543824_1.jpg" width="140p" height="190p">
+                          <br>
+                          <a class="nav-link" href="infovj.html">
+                            <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                          </a>
+                          <br>
+                        </center>
+                      </td>
+                    </tr>
+                    <tr class="table-active">
+                      <td>
+                        <center><img src="https://s2.gaming-cdn.com/images/products/5629/271x377/star-wars-jedi-fallen-order-deluxe-edition-xbox-one-cover.jpg" width="140p" height="190p">
+                          <br>
+                          <a class="nav-link" href="infovj.html">
+                            <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                          </a>
+                          <br>
+                        </center>
+                      </td>
+                      <td>
+                        <center><img src="https://dnsgamer.s3-accelerate.amazonaws.com/wp-content/uploads/2019/08/Spider-Man-Game-of-the-Year-EditionN.png" width="140p" height="190p">
+                          <br>
+                          <a class="nav-link" href="infovj.html">
+                            <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                          </a>
+                          <br>
+                        </center>
+                      </td>
+                      <td>
+                        <center><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/FFVIIRemake.png/220px-FFVIIRemake.png" width="140p" height="190p">
+                          <a class="nav-link" href="infovj.html">
+                            <button type="button" class="btn btn-primary btn-sm">Más información</button>
+                          </a>
+                          <br>
+                        </center>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+    <div style="position: relative;">
+        <ul class="pagination pagination-lg">
+            <li class="page-item disabled">
+                <a class="page-link" href="#">&laquo;</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">4</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">5</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<footer>
+  <div class="alert alert-dismissible alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <center><img src="logo1.png" width="60" height="40" alt="logo1"></center>
+      <center>
+          <p class="mb-0">Avenida San Rafael Atlixco 186, Colonia Vicentina, 09340 Iztapalapa, CDMX</p>
+          <p class="mb-0">UAM Iztapalapa Sitio Oficial, Copyright Derechos Reservados</p>
+          <p class="mb-0">Para conocer al equipo de desarrollo, solo tienes que dar clic  <a href="#" class="alert-link">aquí!</a>.</p>
+      </center>
+    </div>    
+</footer> 
+</html>
+
