@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Reporte de Ventas </title>
+    <link rel='stylesheet' href='../public/css/bootstrap.min.css'>
+    <script src="../public/js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Space Of Games</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="infovj.html">Catálogo Principal<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prueba.html">Ranking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://goo.gl/maps/3vLx4HmzjkZ1cnAW8">Ubicanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="alertas.html">Alertas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="listvideoj.html">Gestion Videojuegos </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="listformularios.html">Historial de Ventas y Apartados</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Videojuego">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="text-center container">
+        <div class="col">
+            <div class="mainWrapper">
+                <h1 class="m-5"> Reporte de Ventas </h1>
+                <table class="table" id="table" data-sortlist="[[0,0],[2,0]]">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col"><span>ID</span></th>
+                            <th scope="col">Nombre Videojuego</th>
+                            <th scope="col">Cantidad Vendidos</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Operacion</th>
+                          </tr>
+                    </thead>
+                    <tbody id="productTable">
+                    </tbody>
+                  </table>
+                  <button class="btn btn-info">Regresar a la pagina principal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../controllers/ControllerReporteVentas.js"></script>
+</body>
+</html>

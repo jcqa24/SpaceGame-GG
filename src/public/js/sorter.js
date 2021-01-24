@@ -1,0 +1,3 @@
+function sorter(){
+    $("#table").tablesorter();
+};

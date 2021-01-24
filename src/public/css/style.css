@@ -1,0 +1,13 @@
+.table thead {
+    cursor: pointer;
+}
+.table thead tr th.headerSortUp,
+.table thead tr th.headerSortDown {
+  background: rgba(0, 0, 0, .2);
+}
+.table thead tr th.headerSortUp span {
+    background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+}
+.table thead tr th.headerSortDown span {
+background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+}
