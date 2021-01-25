@@ -13,7 +13,6 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if(err){
-        console.log("Ya valio")
         console.log(err.code);
         console.log(err.fatal);
     }

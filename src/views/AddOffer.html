@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Ofertas</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+<header>
+<div class="container">
+    <h1>Agrega una oferta</h1>
+  </div>
+  <div class="container">
+    <form id="addofferform">
+      <div class="form-group">
+        <div class="row align-items-center">
+          <div class="col">
+            <label for="game">Selecciona un videojuego</label>
+          </div>
+
+          <div class="col">
+            <select class="custom-select" id="games">
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row align-items-center">
+          <div class="col">
+            <label for="pre">El precio del videojuego es: </label>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="pre" id="pre" disabled>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="row align-items-center">
+          <div class="col">
+            <label for="des">Selecciona el descuento del videojuego </label>
+          </div>
+          <div class="col">
+            <input type="number" id="des" name="des" min="5" max="90" value="5" ><b>%</b>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row align-items-center">
+          <div class="col">
+            <label for="pdes">El precio con descuento del videojuego es: </label>
+          </div>
+          <div class="col">
+            <input type="text" name="pdes" id="pdes" class="form-control" placeholder="" disabled >
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row align-items-center" style="margin-top: 8em;">
+        <div class="col">
+          <button type="button" class="btn btn-primary" onclick="CalcularDescuento()">Calcular descuento</button>
+        </div>
+
+        <div class="col">
+          <button type="submit" class="btn btn-success">Agregar oferta</button>
+        </div>
+
+        <div class="col">
+          <button type="button" class="btn btn-danger" onclick="Cancel()">Cancelar</button>
+        </div>
+
+
+      </div>
+
+
+
+    </form>
+  </div>
+</header>
+<script src="../controllers/AddOfferC.js"></script>
+</body>
+
+</html>
