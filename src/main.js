@@ -4,7 +4,7 @@
  * Creación y redireccionamiento de las ventanas de la APP
  */
 const {app, BrowserWindow, Menu, dialog, Notification} = require('electron');
-const mysql = require('./controllers/conexion');
+const { getConnection } = require("./routes/database");
 const url = require ('url');
 const path = require ('path');
 
@@ -98,7 +98,7 @@ let ProductoWindow;
   para crear la oferta
 */
 async function CreateOffer(NewOffer){
-  const conn = await mysql.getConection();
+  const conn = await getConnection();
   NewOffer.total = parseFloat(NewOffer.total);
   const result = await conn.query("INSERT INTO ofertas SET ?",NewOffer);
 
@@ -122,7 +122,7 @@ async function CreateOffer(NewOffer){
  * @returns informacion del videojuego correspondiente al id
  */
 async function SelectGame(id){
-  const conn = await mysql.getConection();
+  const conn = await getConnection();
   const result = await conn.query("SELECT * FROM videojuego WHERE idvideojuego = ?",id);
   return result;
 }
@@ -135,7 +135,7 @@ async function SelectGame(id){
 
 
 async function GetGames(){
-  const conn = await mysql.getConection();
+  const conn = await getConnection();
   const result = await conn.query("SELECT * FROM videojuego");
   return result;
 
@@ -174,7 +174,7 @@ function AgregarProducto(){
 // funcion que va en un main
 const createProduct = async (VideoJuego) => {
 try {
-  const conn = await mysql.getConection();
+  const conn = await getConnection();
   VideoJuego.Costo = parseFloat(VideoJuego.Costo);
   const result = await conn.query("INSERT INTO videojuego SET ?", VideoJuego);
   VideoJuego.id = result.insertId;
@@ -194,7 +194,7 @@ try {
 
 // funcion que va en un main
 const getProducts = async () => {
-  const conn = await mysql.getConection();
+  const conn = await getConnection();
 const results = await conn.query("SELECT * FROM videojuego ORDER BY id DESC");
 return results;
 };
