@@ -25,7 +25,6 @@ let ProductoWindow;
         enableRemoteModule: true
     }
     });
-    
     const mainMenu = Menu.buildFromTemplate(templateMenu);
     Menu.setApplicationMenu(mainMenu);
     window.loadFile("src/views/index.html");

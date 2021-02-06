@@ -42,3 +42,7 @@ background-image: url('http://tablesorter.com/themes/blue/desc.gif');
 .right {
   flex-basis: calc(50% - 1rem);
 }
+
+.estreno-img {
+  max-width: 40vw;
+}
