@@ -31,8 +31,32 @@ const { getConnection } = require("../routes/database");
     return results;
   };
   
+/**
+   * Regresa una lista con todos los "Videojuegos" existentes en la base de datos 
+   * 
+   * @return {List} result
+   */
+  const RankingMayor = async () => {
+    const conn = await getConnection();
+      const results = await conn.query("SELECT * FROM `videojuego` ORDER BY `Cantidad_Vend` DESC LIMIT 0, 5");
+      return results;  
+  }
+/**
+   * Regresa una lista con todos los "Videojuegos" existentes en la base de datos 
+   * 
+   * @return {List} result
+   */
+  const RankingMenor = async () => {
+    const conn = await getConnection();
+      const results = await conn.query("SELECT * FROM `videojuego` ORDER BY `Cantidad_Vend` ASC LIMIT 0, 5");
+      return results;  
+  }
+
+
   // Exportacion de modulos a otras capas 
   module.exports = {
     getAllVideojuegos,
-    deleteVideojuego
+    deleteVideojuego,
+    RankingMayor,
+    RankingMenor
   };
