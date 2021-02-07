@@ -45,11 +45,11 @@ CREATE TABLE `apartado` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proximosEstrenos`
+-- Estructura de tabla para la tabla `Estrenos`
 --
 
 
-CREATE TABLE `proximosEstrenos` (
+CREATE TABLE `Estrenos` (
   `idEstreno` int(11) NOT NULL PRIMARY KEY,
   `nombreEstreno` varchar(250) NOT NULL,
   `imagen` varchar(250) NOT NULL,
@@ -62,17 +62,17 @@ CREATE TABLE `proximosEstrenos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `proximosEstrenos`
+-- Volcado de datos para la tabla `Estrenos`
 --
 
-INSERT INTO `proximosEstrenos` VALUES
+INSERT INTO `Estrenos` VALUES
 (1, 'Far Cry 6', 'https://m.media-amazon.com/images/I/81dCv7tLDfL._SL1500_.jpg', 'PC , PS4 , PS5 , Xbox One , Xbox Series X', '2021-02-18', 'Far Cry 6 es un próximo videojuego de disparos en primera persona desarrollado por Ubisoft Toronto y publicado por Ubisoft. Es la sexta entrega principal de la serie Far Cry, y se espera que su lanzamiento sea para el año fiscal 2021/2022 para Microsoft Windows, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X|S y Google Stadia.', 'Accion - Aventura', 100, 1999.99),
-(2, 'Bravely Default II', 'https://cdn.supersoluce.com/file/docs/docid_6006c9c39a20454c97000001/elemid_4ee9d6ec0a2fe93f0e00000c/bravely-default-ii-switch.jpg', 'Nintendo Switch', '2021-02-26', 'Bravely Default II es un próximo videojuego de rol desarrollado por Claytechworks para Nintendo Switch. Será publicado por Square Enix en Japón, con Nintendo manejando el lanzamiento en los territorios occidentales.', 'Juego de Rol - RPG', 150, 1499.99),
-(3, 'Monster Hunter Rise', 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2020/09/caratula-monster-hunter-rise-2071431.jpg?itok=ZZ-FUUl6', 'Nintendo Switch', '2021-03-26', 'Monster Hunter Rise es un próximo juego de rol de acción desarrollado y publicado por Capcom para Nintendo Switch. Es la sexta entrega principal de la serie Monster Hunter después de Monster Hunter: World y se lanzará en todo el mundo el 26 de marzo de 2021.', 'Multijugador', 100, 999.99),
-(4, 'NieR Replicant Ver.1.22474487139...', 'https://static.wikia.nocookie.net/nier/images/2/2b/Cover_art_122.jpg/revision/latest?cb=20200924153913', 'PC , PS4 , Xbox One', '2021-04-23', 'NieR Replicant Ver.1.22474487139... es un videojuego de rol y acción japonés desarrollado por Square Enix que busca actualizar y mejorar la primera versión de NieR Replicant, de ahí su extraña nomenclatura que intenta desligarse de una especie de remasterización o remake.', 'Rol, Accion, Disparos', 120, 1499.99),
-(5, 'S.T.A.L.K.E.R. 2', 'https://www.grabpcgames.com/wp-content/uploads/2018/07/stalker-2-cover.jpg', 'PC , Xbox', '2021-12-31', 'STALKER 2 será un videojuego del género de disparos en primera persona ambientado en un futuro posapocalíptico, el cual se ambientará de nuevo en la Zona, un lugar inspirado en el área de exclusión de la central nuclear de Chernóbil, en la actual Ucrania.', 'Un jugador, Multijugador', 200, 1999.99),
+(2, 'NieR Replicant Ver.1.22474487139...', 'https://static.wikia.nocookie.net/nier/images/2/2b/Cover_art_122.jpg/revision/latest?cb=20200924153913', 'PC , PS4 , Xbox One', '2021-04-23', 'NieR Replicant Ver.1.22474487139... es un videojuego de rol y acción japonés desarrollado por Square Enix que busca actualizar y mejorar la primera versión de NieR Replicant, de ahí su extraña nomenclatura que intenta desligarse de una especie de remasterización o remake.', 'Rol, Accion, Disparos', 120, 1499.99),
+(3, 'S.T.A.L.K.E.R. 2', 'https://lh3.googleusercontent.com/proxy/yCNGvIMExs_Ok7Kk81jmZzOtDx5kc95Zz--1VgY5rMf9EfhqkhHcPmjS7if9tmgdFQTPDb_KM6V74-0VjBya8eD4f5mA28q_LeIa', 'PC , Xbox', '2021-12-31', 'STALKER 2 será un videojuego del género de disparos en primera persona ambientado en un futuro posapocalíptico, el cual se ambientará de nuevo en la Zona, un lugar inspirado en el área de exclusión de la central nuclear de Chernóbil, en la actual Ucrania.', 'Un jugador, Multijugador', 200, 1999.99),
+(4, 'Bravely Default II', 'https://cdn.supersoluce.com/file/docs/docid_6006c9c39a20454c97000001/elemid_4ee9d6ec0a2fe93f0e00000c/bravely-default-ii-switch.jpg', 'Nintendo Switch', '2021-02-26', 'Bravely Default II es un próximo videojuego de rol desarrollado por Claytechworks para Nintendo Switch. Será publicado por Square Enix en Japón, con Nintendo manejando el lanzamiento en los territorios occidentales.', 'Juego de Rol - RPG', 150, 1499.99),
+(5, 'Monster Hunter Rise', 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2020/09/caratula-monster-hunter-rise-2071431.jpg?itok=ZZ-FUUl6', 'Nintendo Switch', '2021-03-26', 'Monster Hunter Rise es un próximo juego de rol de acción desarrollado y publicado por Capcom para Nintendo Switch. Es la sexta entrega principal de la serie Monster Hunter después de Monster Hunter: World y se lanzará en todo el mundo el 26 de marzo de 2021.', 'Multijugador', 100, 999.99),
 (6, 'New Pokémon Snap', 'https://pbs.twimg.com/media/ErsiU_tW8AA27yB?format=jpg&name=large', 'Nintendo Switch', '2021-04-30', 'New Pokémon Snap es un videojuego de simulación en primera persona con una mecánica de juego de estilo shooter sobre rieles. Está siendo desarrollado por Bandai Namco Studios y está previsto que Nintendo y The Pokémon Company lo publiquen para Nintendo Switch', 'Simulacion, disparo', 250, 2499.99),
-(7, 'Resident Evil Village', 'https://upload.wikimedia.org/wikipedia/ru/2/24/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Resident_Evil_Village.jpg', 'PC, PS4, PS5, XOne, XSX', '2021-05-07', 'Resident Evil Village​ es un videojuego en desarrollo perteneciente al género de horror de supervivencia desarrollado y publicado por Capcom. El videojuego será la octava entrega mayor de la serie Resident Evil, ​​ y se tratará de una secuela directa de Resident Evil 7: Biohazard.​', 'Multijugador', 200, 1999.99),
+(7, 'Resident Evil Village', 'https://images.igdb.com/igdb/image/upload/t_cover_big/co29lx.jpg', 'PC, PS4, PS5, XOne, XSX', '2021-05-07', 'Resident Evil Village​ es un videojuego en desarrollo perteneciente al género de horror de supervivencia desarrollado y publicado por Capcom. El videojuego será la octava entrega mayor de la serie Resident Evil, ​​ y se tratará de una secuela directa de Resident Evil 7: Biohazard.​', 'Multijugador', 200, 1999.99),
 (8, 'God of War: Ragnarök', 'https://pbs.twimg.com/media/Emwr1TNW4AEWcku.jpg', 'Nintendo Switch', '2021-03-26', 'God of War: Ragnarök es un próximo juego de acción y aventuras en desarrollo por Santa Monica Studio y que será publicado por Sony Interactive Entertainment.', 'Aventura, Acción', 200, 2499.99),
 (9, 'Sherlock Holmes: Chapter One', 'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsherlock-holmes-chapter-one%2Fhome%2FEGS_SherlockHolmesChapterOne_Frogwares_S2-1200x1600-a4b7c8bb29d638fec000f986310609dbb77cc728.jpg', 'PC, PS4, PS5, Xbox', '2021-03-26', 'En este thriller policial narrativo, un joven Sherlock Holmes lucha por demostrar su valía mientras recorre una isla exótica y peligrosa en el Mediterráneo para investigar el misterio de la muerte de su madre.', 'Aventura, Acción', 150, 999.99);
 

@@ -1,6 +1,6 @@
 /**
- * DAO Estreno
- * Componente que suministra la interfaz común entre la aplicación y los "Estrenos" 
+ * DAO Apartado
+ * Componente que suministra la interfaz común entre la aplicación y los "Apartados" 
  * de la base de datos
  * 
  * @author David Moreno Gutiérrez
@@ -8,7 +8,7 @@
 const { getConnection } = require("../routes/database");
 
   /**
-   * Regresa una lista con todos los "Estrenos" existentes en la base de datos 
+   * Regresa una lista con todos los "Apartados" existentes en la base de datos 
    * 
    * @return {List} result
    */
@@ -20,13 +20,13 @@ const { getConnection } = require("../routes/database");
       const result = await conn.query("INSERT INTO apartado SET ?", apartado);
       apartado.idapart = result.insertId;
   
-      // Notify the User
+      // Notifica al Usuario
       new Notification({
         title: "Electron Mysql",
         body: "New Reserva Saved Successfully",
       }).show();
   
-      // Return the created Apartado
+      // Regresa el Objeto "Apartado" creado
       return apartado;
     } catch (error) {
       console.log(error);

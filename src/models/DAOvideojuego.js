@@ -8,11 +8,11 @@
 const { getConnection } = require("../routes/database");
 
   /**
-   * Regresa un verdadero si se pudo ejecutar de forma exitosa la sentencia DELETE
-   * En caso contrario regresa falso
+   * Función que elimina un "Videojuegos" de la BD
    * 
    * @param {idvideojuego} id
-   * @return {boolean} result
+   * @return {boolean} Regresa un verdadero si se pudo ejecutar de forma exitosa la
+   * sentencia DELETE en caso contrario regresa falso
    */
   const deleteVideojuego = async (id) => {
     const conn = await getConnection();
@@ -21,9 +21,10 @@ const { getConnection } = require("../routes/database");
   };
 
   /**
-   * Regresa una lista con todos los "Videojuegos" existentes en la base de datos 
+   * Función que recupera de la base de datos TODOS los Videojuegos en la BD
    * 
-   * @return {List} result
+   * @return {List} Regresa una lista con todos los "Videojuegos" existentes en la
+   * base datos 
    */
   const getAllVideojuegos = async () => {
     const conn = await getConnection();

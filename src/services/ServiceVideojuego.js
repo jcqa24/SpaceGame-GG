@@ -1,6 +1,8 @@
 /**
  * Servicio Videojuego
- * Se comunica con el DAOvideojuego para realizar la lógica de negocio de la aplicación
+ * 
+ * Crea la conexion entre el DAOVideojuego para realizar las consultas a la BD.
+ * Tambien se encarga de la lógica de negocio de la Aplicación
  * 
  * @author David Moreno Gutiérrez
  */

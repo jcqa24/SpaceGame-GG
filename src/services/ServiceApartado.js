@@ -1,6 +1,8 @@
 /**
- * Servicio Estreno
- * Se comunica con el DAOEstrenos para realizar la lógica de negocio de la aplicación
+ * Servicio Apartado
+ * 
+ * Crea la conexion entre el DAOapartado para realizar las consultas a la BD.
+ * Tambien se encarga de la lógica de negocio de la Aplicación
  * 
  * @author David Moreno Gutiérrez
  */
@@ -8,9 +10,11 @@ const { remote } = require("electron");
 const DAOapartado = remote.require("../models/DAOapartado");
 
 /**
- * Recupera todos los usuarios existentes
+ * Función que se comunica con el DAO para crear un apartado, si se creo correctamente
+ * regresa un objeto de tipo apartado, en caso contrario regresa null.
  * 
- * @return Una lista con los usuarios (o lista vacía)
+ * @param {apartado} apartado 
+ * @return {apartado} a 
  */
 const createApartado = async (apartado) => {
   a = await DAOapartado.createApartado(apartado);
