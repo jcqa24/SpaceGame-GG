@@ -18,8 +18,8 @@ let ProductoWindow;
    */
   function index() {
     window = new BrowserWindow({
-      width: 800,
-      height: 600,
+      width: 1800,
+      height: 720,
       webPreferences:{
         nodeIntegration: true,
         enableRemoteModule: true
