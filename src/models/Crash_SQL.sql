@@ -170,7 +170,6 @@ INSERT INTO `venta` (`idventa`, `Nom_Compra`, `Fecha`, `Costo_Total`, `Cantidad_
 -- Estructura de tabla para la tabla `videojuego`
 --
 
-
 CREATE TABLE `videojuego` (
   `idvideojuego` int(11) NOT NULL,
   `Nombre_Video` varchar(45) NOT NULL,
@@ -180,24 +179,26 @@ CREATE TABLE `videojuego` (
   `Genero` varchar(45) NOT NULL,
   `Costo` decimal(4,0) NOT NULL,
   `Consola` varchar(45) NOT NULL,
-  `Anio` int(4) NOT NULL
+  `Anio` int(4) NOT NULL,
+  `img` text NOT NULL,
+  `infop` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `videojuego`
 --
 
-INSERT INTO `videojuego` (`idvideojuego`, `Nombre_Video`, `Descripcion`, `Stock`, `Cantidad_Vend`, `Genero`, `Costo`, `Consola`, `Anio`) VALUES
-(1, 'Crash Bandicoot N. Sane Trilogy', 'Tu marsupial favorito, vuelve mejorado, embelesado y listo para bailar. Ahora puedes disfrutar de Crash Bandicoot con gráficos remasterizados en alta definición.', 30, 3, 'Plataforma', '800', 'Play Station, Xbox', 2019),
-(2, 'Nier: Automata - Game of the Yorha Edition', 'Batallas llenas de acción y combate fluido, perfecto tanto para los recién llegados como para los jugadores experimentados.', 27, 2, 'Rol de Accion', '1000', 'Play Station, Xbox', 2018),
-(3, 'Final Fantasy VII Remake', 'FINAL FANTASY VII REMAKE presenta un sistema híbrido de batalla que une la acción en tiempo real con un combate estratégico.', 30, 0, 'Rol de Accion', '1700', 'Play Station, Xbox', 2020),
-(4, 'God of War', 'Un comienzo totalmente nuevo Su venganza contra los dioses del Olimpo ha quedado atrás y Kratos ahora vive como un hombre en las tierras de los dioses y monstruos nórdicos.', 35, 3, 'Accion - Aventura', '600', 'Play Station, Xbox', 2005),
-(5, 'Resident Evil 2', 'Un escalofriante reimaginado de un clásico de terror: basado en el lanzamiento de la consola PlayStation original en 1998.', 20, 6, 'Supervivencia', '1000', 'Play Station, Xbox', 2019),
-(6, 'Devil May Cry 5', 'Nero creó su propia agencia de caza de demonios con una furgoneta adornada con un letrero de neón \"Devil May Cry\" que Dante le dio con el apoyo de Kyrie y su ingeniero Nico.', 25, 2, 'Plataforma', '700', 'Play Station, Xbox', 2019),
-(7, 'Marvel\'s Spider-Man', 'Este no es el Hombre Araña que conocías o que habías visto antes. Este es un experimentado Peter Parker quien es extraordinario en la lucha contra el crimen en la Nueva York de Marvel.', 26, 8, 'Accion - Aventura', '1000', 'Play Station, Xbox', 2018),
-(8, 'Star Wars Jedi Fallen Order', 'Comienza una nueva historia Jedi: como antiguo padawan huyendo del Imperio, debes completar tu entrenamiento antes de que los Inquisidores Imperiales descubran tu plan para revivir la Orden Jedi', 19, 8, 'Accion - Aventura', '1200', 'Play Station, Xbox', 2019),
-(9, 'Ori and the Will of the Wisps', 'Sumérgete en una experiencia narrativa hecha a mano. Descubre el verdadero destino de Ori en esta emocionante e impactante aventura narrativa.', 23, 5, 'Metroidvania', '1100', 'Xbox', 2020),
-(10, 'Call of Duty: Modern Warfare', 'El nuevo Modern Warfare presenta una experiencia narrativa unificada y una progresión a través de una épica e intensa historia para un jugador.', 20, 7, 'Shotter', '1300', 'Play Station', 2016);
+INSERT INTO `videojuego` (`idvideojuego`, `Nombre_Video`, `Descripcion`, `Stock`, `Cantidad_Vend`, `Genero`, `Costo`, `Consola`, `Anio`, `img`, `infop`) VALUES
+(1, 'Crash Bandicoot N. Sane Trilogy', 'Tu marsupial favorito, vuelve mejorado, embelesado y listo para bailar. Ahora puedes disfrutar de Crash Bandicoot con gráficos remasterizados en alta definición.', 30, 3, 'Plataforma', '800', 'Play Station, Xbox', 2019, 'https://www.gamecool.mx/wp-content/uploads/2017/09/CRASH-BANDICOOT-N-SANE-TRILOGY-PS4.jpg', 'infoCrash.html'),
+(2, 'Nier: Automata - Game of the Yorha Edition', 'Batallas llenas de acción y combate fluido, perfecto tanto para los recién llegados como para los jugadores experimentados.', 27, 2, 'Rol de Accion', '1000', 'Play Station, Xbox', 2018, 'https://images-na.ssl-images-amazon.com/images/I/51IWXMv0oYL._SX385_.jpg', 'infoNier.html'),
+(3, 'Final Fantasy VII Remake', 'FINAL FANTASY VII REMAKE presenta un sistema híbrido de batalla que une la acción en tiempo real con un combate estratégico.', 30, 0, 'Rol de Accion', '1700', 'Play Station, Xbox', 2020, 'https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/FFVIIRemake.png/220px-FFVIIRemake.png', 'infoFFantasyVII.html'),
+(4, 'God of War', 'Un comienzo totalmente nuevo Su venganza contra los dioses del Olimpo ha quedado atrás y Kratos ahora vive como un hombre en las tierras de los dioses y monstruos nórdicos.', 35, 3, 'Accion - Aventura', '600', 'Play Station, Xbox', 2005, 'https://as01.epimg.net/meristation/imagenes/2018/07/11/game_cover/907652701531297916.jpg', 'infoGoW.html'),
+(5, 'Resident Evil 2', 'Un escalofriante reimaginado de un clásico de terror: basado en el lanzamiento de la consola PlayStation original en 1998.', 20, 6, 'Supervivencia', '1000', 'Play Station, Xbox', 2019, 'https://images-na.ssl-images-amazon.com/images/I/71Qbt1+-YhL._SX385_.jpg', 'infoREvil2.html'),
+(6, 'Devil May Cry 5', 'Nero creó su propia agencia de caza de demonios con una furgoneta adornada con un letrero de neón \"Devil May Cry\" que Dante le dio con el apoyo de Kyrie y su ingeniero Nico.', 25, 2, 'Plataforma', '700', 'Play Station, Xbox', 2019, 'https://dgaevo.com/wp-content/uploads/2019/02/Cover-6.jpg', 'infoDMC5.html'),
+(7, 'Marvel\'s Spider-Man', 'Este no es el Hombre Araña que conocías o que habías visto antes. Este es un experimentado Peter Parker quien es extraordinario en la lucha contra el crimen en la Nueva York de Marvel.', 26, 8, 'Accion - Aventura', '1000', 'Play Station, Xbox', 2018, 'https://image.api.playstation.com/vulcan/ap/rnd/202011/0402/C784xeOFo2wViCf4m5bxgoeH.png', 'infoSpiderM.html'),
+(8, 'Star Wars Jedi Fallen Order', 'Comienza una nueva historia Jedi: como antiguo padawan huyendo del Imperio, debes completar tu entrenamiento antes de que los Inquisidores Imperiales descubran tu plan para revivir la Orden Jedi', 19, 8, 'Accion - Aventura', '1200', 'Play Station, Xbox', 2019, 'https://s2.gaming-cdn.com/images/products/5629/271x377/star-wars-jedi-fallen-order-deluxe-edition-xbox-one-cover.jpg', 'infoSWJFO.html'),
+(9, 'Ori and the Will of the Wisps', 'Sumérgete en una experiencia narrativa hecha a mano. Descubre el verdadero destino de Ori en esta emocionante e impactante aventura narrativa.', 23, 5, 'Metroidvania', '1100', 'Xbox', 2020, 'https://media.vandal.net/m/49097/ori-and-the-will-of-the-wisps-20201319543824_1.jpg', 'infoOri.html'),
+(10, 'Call of Duty: Modern Warfare', 'El nuevo Modern Warfare presenta una experiencia narrativa unificada y una progresión a través de una épica e intensa historia para un jugador.', 20, 7, 'Shotter', '1300', 'Play Station', 2016, 'https://images-na.ssl-images-amazon.com/images/I/81n2llGXyiL._SL1500_.jpg', 'infoCoDMW.html');
 
 --
 -- Índices para tablas volcadas
