@@ -24,7 +24,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "electron": "^11.2.2",
+    "electron": "^11.2.3",
     "mysql-promise": "^5.0.0",
     "promise-mysql": "^5.0.2"
   }

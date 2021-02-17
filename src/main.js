@@ -7,11 +7,11 @@ const {app, BrowserWindow, Menu, dialog, Notification} = require('electron');
 const { getConnection } = require("./routes/database");
 const url = require ('url');
 const path = require ('path');
-
-
 let window;
 let AddOfferWindow;
 let ProductoWindow;
+
+
 
   /**
    * Crea la ventana Index
