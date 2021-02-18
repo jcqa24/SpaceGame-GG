@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css" type="text/css">
+
+    <title>Aertas de produto agotadp</title>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Space Of Games</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Catálogo Principal<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ranking.html">Ranking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://goo.gl/maps/3vLx4HmzjkZ1cnAW8">Ubicanos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="alertas.html">Alertas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="listvideoj.html">Gestion Videojuegos </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="listformularios.html">Historial de Ventas y Apartados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ViewCatalogoEstrenos.html">Próximos Estrenos</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Videojuego">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<body>
+
+    <div>
+
+        <div class="form-group">
+            <h1>Productos Agotados</h1>
+            <fieldset>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre Producto</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Costo</th>
+                            <th scope="col">Ventas </th>
+                
+                        </tr>
+                    </thead>
+                    <tbody id="TablaCuerpo">
+                        
+                    </tbody>
+                </table>
+            </fieldset>
+            <script src="../controllers/ControllerAlertaStocks.js"></script>
+        </div>
+
+    </div>
+
+   
+</body>
+
+</html>
