@@ -46,3 +46,14 @@ background-image: url('http://tablesorter.com/themes/blue/desc.gif');
 .estreno-img {
   max-width: 40vw;
 }
+
+
+.panel{
+  border: 1px solid gray; 
+  padding: 2em;
+}
+
+.rct{
+  margin-top:2em;
+}
+
