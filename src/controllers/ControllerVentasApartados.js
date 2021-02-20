@@ -1,20 +1,21 @@
 /**
- * Controlador Videojuego
+ * Controlador Ventas y Apartados
+ * Se encarga de manipular las funcionalidades de la ventana "Ventas y Apartados"
+ * @author Yehosuah Eli Mendoza Mendoza
  * 
- * Se encarga de manipular las funcionalidades de la ventana "Reporte de Ventas"
  */
+
 const ServiceVentaApartado = require("../services/ServiceVentaApartado");
 const ventasTable = document.querySelector("#ventasTable");
 const apartadosTable = document.querySelector("#apartadosTable");
 
 /**
  * Renderiza los renglones de la tabla para mostrarlo con los datos obtenidos de
- * las capas superiores y mostrarlos en la ventana "Reporte de Ventas"
+ * las capas superiores y mostrarlos en la ventana "Ventas y Apartados"
  * 
  * @param {ventas} tasks 
  */
 function renderVentas(tasks) {
-  ventasTable.innerHTML = "";
   tasks.forEach((t) => {
     ventasTable.innerHTML += `
       <tr class="table-danger">
@@ -30,12 +31,11 @@ function renderVentas(tasks) {
 
 /**
  * Renderiza los renglones de la tabla para mostrarlo con los datos obtenidos de
- * las capas superiores y mostrarlos en la ventana "Reporte de Ventas"
+ * las capas superiores y mostrarlos en la ventana "Ventas y Apartados"
  * 
  * @param {apartados} tasks 
  */
 function renderApartados(tasks) {
-  apartadosTable.innerHTML = "";
   tasks.forEach((t) => {
     apartadosTable.innerHTML += `
       <tr class="table-danger">
@@ -49,11 +49,8 @@ function renderApartados(tasks) {
       });
 }
 
-
-
-
 /**
- * Inicializa la ventana con los videojuegos obtenidos de la base de datos
+ * Inicializa la ventana con las ventas y los apartados obtenidos de la base de datos
  * A través de las capas superiores
  */
 async function init() {

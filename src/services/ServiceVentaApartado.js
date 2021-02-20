@@ -1,18 +1,15 @@
 /**
- * Servicio Videojuego
- * 
- * Crea la conexion entre el DAOVideojuego para realizar las consultas a la BD.
- * Tambien se encarga de la lógica de negocio de la Aplicación
- * 
- * @author David Moreno Gutiérrez
+ * Servicio Ventas y Apartados
+ * Crea la conexion con DAOventasapartados para realizar las consultas a la BD.
+ * @author Yehosuah Eli Mendoza Mendoza
  */
-const { remote } = require("electron");
+
+ const { remote } = require("electron");
 const DAOventasapartados = remote.require("../models/DAOventasapartados");
 
 /**
- * Recupera todos los usuarios existentes
- * 
- * @return Una lista con los usuarios (o lista vacía)
+ * Recupera todos la informacion existentes
+ * @return {List} Una lista con la informacion (o lista vacía)
  */
 const getApartados = async () => {
   apartados = await DAOventasapartados.getAllApartados();
@@ -21,9 +18,8 @@ const getApartados = async () => {
 
 
 /**
- * Recupera todos los usuarios existentes
- * 
- * @return Una lista con los usuarios (o lista vacía)
+ * Recupera todos la informacion existentes
+ * @return {List} Una lista con la informacion (o lista vacía)
  */
 const getVentas = async () => {
   ventas = await DAOventasapartados.getAllVentas();
