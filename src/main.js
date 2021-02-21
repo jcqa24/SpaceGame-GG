@@ -47,8 +47,12 @@ function index() {
 }
 
 /**
- * Crea la ventana logIn
- */
+*	  Si los datos son correctos, crea la ventana del panel de control y 
+*   oculta la ventana principal
+*   Si los datos son incorrectos muestra un mensaje de error al usuario
+*   @param  {Boolean} value True/False dependiendo si se ingresaron correctamente
+*                           el usuario y la contraseña
+*/
 function login(value) {
   if (value) {
     window.hide();
@@ -86,8 +90,11 @@ function login(value) {
 }
 
 
+/**
+*	Cierra la ventana del panel de control 
+* y regresa a la ventana principal
+*/
 function closeCP(){
-  console.log("asdasd");
   window.loadFile("src/views/index.html");
   window.show();
   CPwindow.close();
