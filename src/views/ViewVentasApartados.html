@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Ventas y Apartados </title>
+    <link rel='stylesheet' href='../public/css/bootstrap.min.css'>
+    <script src="../public/js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+<body>
+    <div class="text-center container">
+        <div class="col">
+            <div class="mainWrapper">
+                <h1 class="m-5"> Ventas </h1>
+                <table class="table" id="table" data-sortlist="[[0,0],[2,0]]">
+                    <thead class="table-active">
+                        <tr>
+                            <th scope="col"><span>ID Venta</span></th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Total</th>
+                          </tr>
+                    </thead>
+                    <tbody id="ventasTable">
+                    </tbody>
+                  </table>
+                  <h1 class="m-5"> Apartados </h1>
+                  <table class="table" id="table" data-sortlist="[[0,0],[2,0]]">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col"><span>ID Apartado</span></th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Videojuego</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                          </tr>
+                    </thead>
+                    <tbody id="apartadosTable">
+                    </tbody>
+                  </table>
+                  <div class="d-flex flex-row-reverse">
+                    <div class="p-2">
+                        <a type="button" class="btn btn-danger" href="ViewCPanel.html" >Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script src="../controllers/ControllerVentasApartados.js"></script>
+</body>
+</html>

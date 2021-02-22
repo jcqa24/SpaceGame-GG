@@ -6,8 +6,8 @@
   "main": "src/routes/index.js",
   "scripts": {
     "start": "electron .",
-    "test": "mocha",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32  --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"ABCC - GG\""
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32  --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"ABCC - GG\"",
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "electron": "^11.2.2",
+    "electron": "^11.2.3",
     "mysql-promise": "^5.0.0",
     "promise-mysql": "^5.0.2"
   }
