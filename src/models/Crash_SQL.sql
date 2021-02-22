@@ -171,7 +171,7 @@ INSERT INTO `venta` (`idventa`, `Nom_Compra`, `Fecha`, `Costo_Total`, `Cantidad_
 --
 
 CREATE TABLE `videojuego` (
-  `idvideojuego` int(11) NOT NULL,
+  `idvideojuego` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Nombre_Video` varchar(45) NOT NULL,
   `Descripcion` varchar(250) NOT NULL,
   `Stock` int(4) NOT NULL,
@@ -235,8 +235,8 @@ ALTER TABLE `venta`
 --
 -- Indices de la tabla `videojuego`
 --
-ALTER TABLE `videojuego`
-  ADD PRIMARY KEY (`idvideojuego`);
+-- ALTER TABLE `videojuego`
+--  ADD PRIMARY KEY (`idvideojuego`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas

@@ -1,29 +1,29 @@
-const { remote } = require('electron');
-const main = remote.require('./main');
+const { remote } = require('electron')
+const main = remote.require('../main')
 
 const productsList = document.getElementById("TablaCuerpo");
+let products = [];
 
-const getProducts = async () => {
-    products = await main.getProductsAlertStock();
-    renderProductsAlertsStock(products);
-  };
-
-  function renderProductsAlertsStock(tasks) {
+function renderProductsAlertsStock(tasks) {
     productsList.innerHTML = "";
-    tasks.forEach((t) => {
+      tasks.forEach((t) => {
       productsList.innerHTML += `
         <tr>
         <th scope="col">${t.Nombre_Video}</th>
         <th scope="col">${t.Stock}</th>
         <th scope="col">${t.Costo}</th>
         <th scope="col">${t.Cantidad_Vend}</th>
-        <tr >
+        </tr>
       `;
-    });
+    });  
   }
 
-
-  async function init() {
+const getProducts = async () => {
+    products = await main.getProductsAlertStock();
+    renderProductsAlertsStock(products);
+  };
+  
+ async function init() {
     await getProducts();
   }
   

@@ -1,63 +1,72 @@
-const { remote } = require('electron');
-const main = remote.require('./main');
+const { remote } = require('electron')
+const main = remote.require('../main')
 
 const productsList = document.getElementById("ProductosLista");
 
-const inputVideoJuego = document.getElementById("inputVideoJuego");
-const inpuNumeroStock = document.getElementById("inpuNumeroStock");
-const inputPlataforma = document.getElementById("inputPlataforma");
-const inputGenero = document.getElementById("inputGenero");
-const inputAnyo = document.getElementById("inputAnyo");
-const inputPrecio = document.getElementById("inputPrecio");
-const inputDescripcion = document.getElementById("inputDescripcion");
+const productForm = document.getElementById("productForm");
+const productNombre_Video = document.getElementById("Nombre_Video");
+const productStock = document.getElementById("Stock");
+const productConsola = document.getElementById("Consola");
+const productGenero = document.getElementById("Genero");
+const productAnio = document.getElementById("Anio");
+const productCosto = document.getElementById("Costo");
+const productDescripcion = document.getElementById("Descripcion");
 
 let products = [];
+ 
 let editingStatus = false;
-let editProductId;
+let editProductId='';
 
 const deleteProduct = async (id) => {
-  const response = confirm("Quiere Eliminar el DATO");
+  const response = confirm("Quiere Eliminar este Producto");
   if (response) {
     await main.deleteProduct(id);
-    await getProducts();
+    await getProduct();
   }
   return;
-};
+}; 
 
 const editProduct = async (id) => {
   const product = await main.getProductById(id);
-  inputVideoJuego.value = product.Nombre_Video;
-  inpuNumeroStock.value = product.Stock;
-  inputPlataforma.value = product.Consola;
-  inputGenero.value = product.Genero;
-  inputAnyo.value =  product.Anio;
-  inputPrecio.value = product.Costo;
-  inputDescripcion.value = product.Descripcion;
+  
+  productNombre_Video.value = product.Nombre_Video;
+  productStock.value = product.Stock;
+  productConsola.value = product.Consola;
+  productGenero.value = product.Genero;
+  productAnio.value =  product.Anio;
+  productCosto.value = product.Costo;
+  productDescripcion.value = product.Descripcion;
 
   editingStatus = true;
   editProductId = id;
-};
+}; 
 
-productForm.addEventListener("submit", async (e) => {
+ productForm.addEventListener("submit", async (e) => { 
+	
+	e.preventDefault();
+	 
   try {
     e.preventDefault();
 
-    const newVideoJuego = {
-      Nombre_Video: inputVideoJuego.value,
-      Descripcion: inputDescripcion.value,
-      Stock: inpuNumeroStock.value,
+    const newProduct = {
+      Nombre_Video: productNombre_Video.value,
+      Descripcion:  productDescripcion.value,
+      Stock: productStock.value,
       Cantidad_Vend: 0,
-      Genero: inputGenero.value,
-      Costo: inputPrecio.value,
-      Consola: inputPlataforma.value,
-      Anio: inputAnyo.value,
+      Genero: productGenero.value,
+      Costo: productCosto.value,
+      Consola: productConsola.value,
+      Anio: productAnio.value,
+	  img: '',
+	  infop: ''
     };
-
+	 
+	
     if (!editingStatus) {
-      const savedProduct = await main.createProduct(newVideoJuego);
+      const savedProduct = await main.createProduct(newProduct)
       console.log(savedProduct);
     } else {
-      const productUpdated = await main.updateProduct(editProductId, newVideoJuego);
+      const productUpdated = await main.updateProduct(editProductId, newProduct)
       console.log(productUpdated);
 
       // Reset
@@ -66,43 +75,44 @@ productForm.addEventListener("submit", async (e) => {
     }
 
     productForm.reset();
-    inputVideoJuego.focus();
-    getProducts();
+    productNombre_Video.focus();
+	getProduct();
   } catch (error) {
     console.log(error);
   }
+})
 
-});
+
 
 function renderProducts(tasks) {
   productsList.innerHTML = "";
   tasks.forEach((t) => {
     productsList.innerHTML += `
-      <div class="collapse navbar-collapse">
-        <h4>${t.Nombre_Video}</h4>
-        <h4>${t.Stock}</h4>
-        <h4>${t.Costo}</h4>
-        <h4>${t.Cantidad_Vend}</h4>
-        <p>
-        <button class="nav-item active" onclick="deleteProduct('${t.idvideojuego}')">
+      <div class="row">
+        <div class="col-sm">${t.Nombre_Video}</div>
+        <div class="col-sm">${t.Stock}</div>
+        <div class="col-sm">${t.Costo}</div>
+        <div class="col-sm">${t.Cantidad_Vend}</div>
+        <div class="col-sm">
+        <button class="btn btn-danger" onclick="deleteProduct('${t.idvideojuego}')">
           DELETE
         </button>
-        <button class="nav-item active" onclick="editProduct('${t.idvideojuego}')">
+        <button class="btn btn-info" onclick="editProduct('${t.idvideojuego}')">
           EDIT 
-        </button>
-        </p>
+        </div>
       </div>
     `;
   });
 }
 
-const getProducts = async () => {
+
+const getProduct = async () => {
   products = await main.getProducts();
   renderProducts(products);
 };
 
 async function init() {
-  await getProducts();
-}
+   await getProduct();
+ }
 
-init();
+init(); 

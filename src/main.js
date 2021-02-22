@@ -13,24 +13,24 @@ let window;
 let AddOfferWindow;
 let ProductoWindow;
 
-  /**
-   * Crea la ventana Index
-   */
-  function index() {
-    window = new BrowserWindow({
-      width: 1800,
-      height: 720,
-      webPreferences:{
-        nodeIntegration: true,
-        enableRemoteModule: true
+/**
+ * Crea la ventana Index
+ */
+function index() {
+  window = new BrowserWindow({
+    width: 1800,
+    height: 720,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
-    });
-    const mainMenu = Menu.buildFromTemplate(templateMenu);
-    Menu.setApplicationMenu(mainMenu);
-    window.loadFile("src/views/index.html");
-  }
+  });
+  const mainMenu = Menu.buildFromTemplate(templateMenu);
+  Menu.setApplicationMenu(mainMenu);
+  window.loadFile("src/views/index.html");
+}
 
- 
+
 /**
  * Crea la ventana logIn
  */
@@ -141,12 +141,13 @@ async function GetGames() {
 
 }
 
-//Agregar Producto 
-
+/**
+ * Crea la ventana AgregarProducto
+ */
 function AgregarProducto() {
   ProductoWindow = new BrowserWindow({
-    with: 350,
-    height: 480,
+    with: 1300,
+    height: 780,
 
     title: 'Agregar Producto',
     webPreferences: {
@@ -159,7 +160,7 @@ function AgregarProducto() {
 
   ProductoWindow.loadURL(url.format({
 
-    pathname: path.join(__dirname, 'views\ViewProductos.html'),
+    pathname: path.join(__dirname, 'views/ViewProductos.html'),
     protocol: 'file',
     slashes: true
   }))
@@ -168,6 +169,9 @@ function AgregarProducto() {
   });
 }
 
+/**
+ * Crea la ventana Alerta Stock
+ */
 function VentanaAlerta() {
   ProductoWindow = new BrowserWindow({
     with: 350,
@@ -184,7 +188,7 @@ function VentanaAlerta() {
 
   ProductoWindow.loadURL(url.format({
 
-    pathname: path.join(__dirname, 'views/ViewAlertas'),
+    pathname: path.join(__dirname, 'views/ViewAlertas.html'),
     protocol: 'file',
     slashes: true
   }))
@@ -194,46 +198,66 @@ function VentanaAlerta() {
 }
 
 
-// funcion para Agregar un Nuevo Producto
+/**
+ * Agrega un video Juego a la Base de Datos
+ * @returns  videojuegos Ingresado
+ */
+
 const createProduct = async (VideoJuego) => {
   try {
     const conn = await getConnection();
     VideoJuego.Costo = parseFloat(VideoJuego.Costo);
     const result = await conn.query("INSERT INTO videojuego SET ?", VideoJuego);
+    console.log(reult)
     VideoJuego.idvideojuego = result.insertId;
 
-    // Notify the User
+    //Notify the User
     new Notification({
-      title: "Producto Nuevo desde Electron Mysql",
-      body: "New Product Saved Successfully",
+      title: "Agregar o Editar Producto",
+      body: "El Producto fue Guardado Satisfactoriamente",
     }).show();
 
     // Return the created Product
     return VideoJuego;
   } catch (error) {
     console.log(error);
-};
+  };
 }
 
-// funcion que va en un main
+/**
+ * Selecciona todos los videojugos disponibles de Forma decendiente 
+ * @returns lista de todos los videojuegos en la base de datos
+ */
 const getProducts = async () => {
   const conn = await getConnection();
   const results = await conn.query("SELECT * FROM videojuego ORDER BY idvideojuego DESC");
   return results;
 };
 
+/**
+ * Elimina un videojugos de la base de Datos
+ * @returns videojuegos Eliminado
+ */
 const deleteProduct = async (id) => {
   const conn = await getConnection();
   const result = await conn.query("DELETE FROM videojuego WHERE idvideojuego = ?", id);
   return result;
 };
 
+/**
+ * Busaca un videojugos de la base de Datos por id 
+ * @returns videojuegos encontrado
+ */
 const getProductById = async (id) => {
   const conn = await getConnection();
   const result = await conn.query("SELECT * FROM videojuego WHERE idvideojuego = ?", id);
   return result[0];
 };
 
+/**
+ * Actuliza un videojugos de la base de Datos por id 
+ * @returns 
+ */
 const updateProduct = async (id, product) => {
   const conn = await getConnection();
   const result = await conn.query("UPDATE videojuego SET ? WHERE idvideojuego = ?", [
@@ -243,11 +267,17 @@ const updateProduct = async (id, product) => {
   console.log(result)
 };
 
+/**
+ * Selecciona todos los videojugos disponibles con el Stock = 0
+ * @returns lista de todos los videojuegos en la base de datos
+ */
 const getProductsAlertStock = async () => {
   const conn = await getConnection();
   const results = await conn.query("SELECT * FROM videojuego WHERE Stock = 0");
+  console.log(results)
   return results;
 };
+
 
 
 const templateMenu = [
