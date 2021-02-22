@@ -53,7 +53,7 @@ function index() {
 *   @param  {Boolean} value True/False dependiendo si se ingresaron correctamente
 *                           el usuario y la contraseña
 */
-function logIn(value) {
+function login(value) {
   if (value) {
     window.hide();
     CPwindow = new BrowserWindow({
@@ -339,7 +339,7 @@ const templateMenu = [
       {
         label: 'Iniciar Sesión',
         click() {
-          logIn();
+          login();
         }
       },
       {
@@ -370,7 +370,7 @@ const templateMenu = [
 // Exportacion de modulos 
 module.exports = {
   index,
-  logIn,
+  login,
   reporteVentas,
   CreateOffer,
   GetGames,
