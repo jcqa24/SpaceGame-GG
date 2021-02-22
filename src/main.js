@@ -7,20 +7,12 @@ const { app, BrowserWindow, Menu, dialog, Notification } = require('electron');
 const { getConnection } = require("./routes/database");
 const url = require('url');
 const path = require('path');
-<<<<<<< HEAD
-=======
 
 
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
 let window;
 let AddOfferWindow;
 let ProductoWindow;
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
 /**
  * Crea la ventana Index
  */
@@ -33,7 +25,6 @@ function index() {
       enableRemoteModule: true
     }
   });
-<<<<<<< HEAD
 
   window.webContents.openDevTools()
 
@@ -62,7 +53,7 @@ function index() {
 *   @param  {Boolean} value True/False dependiendo si se ingresaron correctamente
 *                           el usuario y la contraseña
 */
-function login(value) {
+function logIn(value) {
   if (value) {
     window.hide();
     CPwindow = new BrowserWindow({
@@ -109,31 +100,6 @@ function closeCP(){
   CPwindow.close();
 }
 
-=======
-  const mainMenu = Menu.buildFromTemplate(templateMenu);
-  Menu.setApplicationMenu(mainMenu);
-  window.loadFile("src/views/index.html");
-}
-
-
-/**
- * Crea la ventana logIn
- */
-function logIn() {
-  window = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true
-    }
-  });
-
-  window.setMenu(null);
-  window.loadFile("src/views/logIn.html");
-}
-
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
 /**
  * Crea la ventana reporteVentas
  */
@@ -246,9 +212,6 @@ function AgregarProducto() {
 
   ProductoWindow.loadURL(url.format({
 
-<<<<<<< HEAD
-function AgregarProducto() {
-=======
     pathname: path.join(__dirname, 'views/ViewProductos.html'),
     protocol: 'file',
     slashes: true
@@ -262,16 +225,11 @@ function AgregarProducto() {
  * Crea la ventana Alerta Stock
  */
 function VentanaAlerta() {
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
   ProductoWindow = new BrowserWindow({
     with: 350,
     height: 480,
 
-<<<<<<< HEAD
-    title: 'Agregar Producto',
-=======
     title: 'Ventana de Alertas de Stock',
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
@@ -282,11 +240,7 @@ function VentanaAlerta() {
 
   ProductoWindow.loadURL(url.format({
 
-<<<<<<< HEAD
-    pathname: path.join(__dirname, 'views/AgregarProducto.html'),
-=======
     pathname: path.join(__dirname, 'views/ViewAlertas.html'),
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
     protocol: 'file',
     slashes: true
   }))
@@ -306,14 +260,6 @@ const createProduct = async (VideoJuego) => {
     const conn = await getConnection();
     VideoJuego.Costo = parseFloat(VideoJuego.Costo);
     const result = await conn.query("INSERT INTO videojuego SET ?", VideoJuego);
-<<<<<<< HEAD
-    VideoJuego.id = result.insertId;
-
-    // requiere Notification
-    new Notification({
-      title: "Electron Mysql Agregar Producto",
-      body: "Nuevo producto Guardado satisfactoriamente",
-=======
     console.log(reult)
     VideoJuego.idvideojuego = result.insertId;
 
@@ -321,20 +267,14 @@ const createProduct = async (VideoJuego) => {
     new Notification({
       title: "Agregar o Editar Producto",
       body: "El Producto fue Guardado Satisfactoriamente",
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
     }).show();
 
     // Return the created Product
     return VideoJuego;
   } catch (error) {
     console.log(error);
-<<<<<<< HEAD
-  }
-};
-=======
   };
 }
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
 
 /**
  * Selecciona todos los videojugos disponibles de Forma decendiente 
@@ -342,11 +282,7 @@ const createProduct = async (VideoJuego) => {
  */
 const getProducts = async () => {
   const conn = await getConnection();
-<<<<<<< HEAD
-  const results = await conn.query("SELECT * FROM videojuego ORDER BY id DESC");
-=======
   const results = await conn.query("SELECT * FROM videojuego ORDER BY idvideojuego DESC");
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
   return results;
 };
 
@@ -360,8 +296,6 @@ const deleteProduct = async (id) => {
   return result;
 };
 
-<<<<<<< HEAD
-=======
 /**
  * Busaca un videojugos de la base de Datos por id 
  * @returns videojuegos encontrado
@@ -398,7 +332,6 @@ const getProductsAlertStock = async () => {
 
 
 
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
 const templateMenu = [
   {
     label: 'Control',
@@ -424,14 +357,11 @@ const templateMenu = [
         click() {
           AgregarProducto();
         }
-<<<<<<< HEAD
-=======
       }, {
         label: 'Ventana de Alerta',
         click() {
           VentanaAlerta();
         }
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
       }
     ]
   }
@@ -440,24 +370,15 @@ const templateMenu = [
 // Exportacion de modulos 
 module.exports = {
   index,
-<<<<<<< HEAD
-  login,
-=======
   logIn,
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
   reporteVentas,
   CreateOffer,
   GetGames,
   SelectGame,
   createProduct,
   getProducts,
-<<<<<<< HEAD
-  closeCP
-};
-=======
   deleteProduct,
   getProductById,
   updateProduct,
   getProductsAlertStock
 };
->>>>>>> SPAC-11/12-Crear-y-Eliminar-Producto
