@@ -3,92 +3,145 @@
  * 
  * Creación y redireccionamiento de las ventanas de la APP
  */
-const {app, BrowserWindow, Menu, dialog, Notification} = require('electron');
+const { app, BrowserWindow, Menu, dialog, Notification } = require('electron');
 const { getConnection } = require("./routes/database");
-const url = require ('url');
-const path = require ('path');
+const url = require('url');
+const path = require('path');
 let window;
 let AddOfferWindow;
 let ProductoWindow;
 
 
 
-  /**
-   * Crea la ventana Index
-   */
-  function index() {
-    window = new BrowserWindow({
-      width: 1800,
-      height: 720,
-      webPreferences:{
-        nodeIntegration: true,
-        enableRemoteModule: true
+/**
+ * Crea la ventana Index
+ */
+function index() {
+  window = new BrowserWindow({
+    width: 1800,
+    height: 720,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
-    });
-    const mainMenu = Menu.buildFromTemplate(templateMenu);
-    Menu.setApplicationMenu(mainMenu);
-    window.loadFile("src/views/index.html");
-  }
+  });
 
-  /**
-   * Crea la ventana logIn
-   */
-  function logIn() {
-    window = new BrowserWindow({
+  window.webContents.openDevTools()
+
+  const mainMenu = Menu.buildFromTemplate(templateMenu);
+  Menu.setApplicationMenu(mainMenu);
+
+  window.setMenu(null);
+
+  window.loadURL(url.format({
+
+    pathname: path.join(__dirname, 'views/index.html'),
+    protocol: 'file',
+    slashes: true
+  }))
+  ProductoWindow.on('closed', () => {
+    ProductoWindow = null
+  });
+
+
+}
+
+/**
+*	  Si los datos son correctos, crea la ventana del panel de control y 
+*   oculta la ventana principal
+*   Si los datos son incorrectos muestra un mensaje de error al usuario
+*   @param  {Boolean} value True/False dependiendo si se ingresaron correctamente
+*                           el usuario y la contraseña
+*/
+function login(value) {
+  if (value) {
+    window.hide();
+    CPwindow = new BrowserWindow({
       width: 800,
       height: 600,
-      webPreferences:{
+      webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true
-    }
+      }
     });
 
-    window.setMenu(null);
-    window.loadFile("src/views/logIn.html");
+    CPwindow.setMenu(null);
+    CPwindow.loadFile("src/views/ViewCPanel.html");
+    CPwindow.webContents.openDevTools();
+    CPwindow.on('close', function () {
+      window.loadFile("src/views/index.html");
+      window.show();
+    });
+  } else {
+    const options = {
+      type: 'error',
+      buttons: ['Aceptar'],
+      title: 'Datos incorrectos',
+      message: 'Los datos que ingresaste no son correctos \n Intentalo de nuevo',
+    };
+
+    dialog.showMessageBox(null, options, (response) => {
+      console.log(response);
+
+    });
   }
 
-  /**
-   * Crea la ventana reporteVentas
-   */
-  function reporteVentas() {
-    window = new BrowserWindow({
-      width: 800,
-      height: 600,
-      webPreferences:{
-        nodeIntegration: true,
-        enableRemoteModule: true
+
+}
+
+
+/**
+*	Cierra la ventana del panel de control 
+* y regresa a la ventana principal
+*/
+function closeCP(){
+  window.loadFile("src/views/index.html");
+  window.show();
+  CPwindow.close();
+}
+
+/**
+ * Crea la ventana reporteVentas
+ */
+function reporteVentas() {
+  window = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
-    });
+  });
 
-    window.setMenu(null);
-    window.loadFile("src/views/ViewReporteVentas.html");
-  }
+  window.setMenu(null);
+  window.loadFile("src/views/ViewReporteVentas.html");
+}
 
-  function AddOfferView(){
-    AddOfferWindow = new BrowserWindow({
-        with: 800,
-        height: 600,
-        title: 'Agregar Oferta',
-    webPreferences:{
-        nodeIntegration: true,
-        enableRemoteModule: true
+function AddOfferView() {
+  AddOfferWindow = new BrowserWindow({
+    with: 800,
+    height: 600,
+    title: 'Agregar Oferta',
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
 
-    });
+  });
 
-    AddOfferWindow.setMenu(null);
+  AddOfferWindow.setMenu(null);
 
-    AddOfferWindow.loadURL(url.format({
+  AddOfferWindow.loadURL(url.format({
 
-        pathname: path.join (__dirname, 'views/AddOffer.html'),
-        protocol: 'file',
-        slashes: true
-    }))
-    AddOfferWindow.on('closed', () => {
-        AddOfferWindow = null
-    });
+    pathname: path.join(__dirname, 'views/AddOffer.html'),
+    protocol: 'file',
+    slashes: true
+  }))
+  AddOfferWindow.on('closed', () => {
+    AddOfferWindow = null
+  });
 
-    
+
 }
 
 
@@ -96,22 +149,22 @@ let ProductoWindow;
   Recibe como parametro un objeto con los datos necesarios
   para crear la oferta
 */
-async function CreateOffer(NewOffer){
+async function CreateOffer(NewOffer) {
   const conn = await getConnection();
   NewOffer.total = parseFloat(NewOffer.total);
-  const result = await conn.query("INSERT INTO ofertas SET ?",NewOffer);
+  const result = await conn.query("INSERT INTO ofertas SET ?", NewOffer);
 
   const options = {
-      type: 'info',
-      buttons: ['Aceptar'],
-      title: 'Oferta agregada',
-      message: 'La Oferta se agrego correctamente',
-    };
-  
-    dialog.showMessageBox(null, options, (response) => {
-      console.log(response);
+    type: 'info',
+    buttons: ['Aceptar'],
+    title: 'Oferta agregada',
+    message: 'La Oferta se agrego correctamente',
+  };
 
-    });
+  dialog.showMessageBox(null, options, (response) => {
+    console.log(response);
+
+  });
 
 }
 
@@ -120,9 +173,9 @@ async function CreateOffer(NewOffer){
  * @param id  id del videojuego del cual necesitamos la informacion
  * @returns informacion del videojuego correspondiente al id
  */
-async function SelectGame(id){
+async function SelectGame(id) {
   const conn = await getConnection();
-  const result = await conn.query("SELECT * FROM videojuego WHERE idvideojuego = ?",id);
+  const result = await conn.query("SELECT * FROM videojuego WHERE idvideojuego = ?", id);
   return result;
 }
 
@@ -133,7 +186,7 @@ async function SelectGame(id){
  */
 
 
-async function GetGames(){
+async function GetGames() {
   const conn = await getConnection();
   const result = await conn.query("SELECT * FROM videojuego");
   return result;
@@ -142,15 +195,15 @@ async function GetGames(){
 
 //Agregar Producto 
 
-function AgregarProducto(){
+function AgregarProducto() {
   ProductoWindow = new BrowserWindow({
-      with: 350,
-      height: 480,
+    with: 350,
+    height: 480,
 
-      title: 'Agregar Producto',
-      webPreferences:{
-        nodeIntegration: true,
-        enableRemoteModule: true
+    title: 'Agregar Producto',
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
     }
   });
 
@@ -158,83 +211,84 @@ function AgregarProducto(){
 
   ProductoWindow.loadURL(url.format({
 
-      pathname: path.join (__dirname, 'views/AgregarProducto.html'),
-      protocol: 'file',
-      slashes: true
+    pathname: path.join(__dirname, 'views/AgregarProducto.html'),
+    protocol: 'file',
+    slashes: true
   }))
   ProductoWindow.on('closed', () => {
-      ProductoWindow = null
+    ProductoWindow = null
   });
 }
 
 
 // funcion que va en un main
 const createProduct = async (VideoJuego) => {
-try {
-  const conn = await getConnection();
-  VideoJuego.Costo = parseFloat(VideoJuego.Costo);
-  const result = await conn.query("INSERT INTO videojuego SET ?", VideoJuego);
-  VideoJuego.id = result.insertId;
+  try {
+    const conn = await getConnection();
+    VideoJuego.Costo = parseFloat(VideoJuego.Costo);
+    const result = await conn.query("INSERT INTO videojuego SET ?", VideoJuego);
+    VideoJuego.id = result.insertId;
 
-  // requiere Notification
-  new Notification({
-    title: "Electron Mysql Agregar Producto",
-    body: "Nuevo producto Guardado satisfactoriamente",
-  }).show();
+    // requiere Notification
+    new Notification({
+      title: "Electron Mysql Agregar Producto",
+      body: "Nuevo producto Guardado satisfactoriamente",
+    }).show();
 
-  // Return the created Product
-  return VideoJuego;
-} catch (error) {
-  console.log(error);
-}
+    // Return the created Product
+    return VideoJuego;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // funcion que va en un main
 const getProducts = async () => {
   const conn = await getConnection();
-const results = await conn.query("SELECT * FROM videojuego ORDER BY id DESC");
-return results;
+  const results = await conn.query("SELECT * FROM videojuego ORDER BY id DESC");
+  return results;
 };
 
 
-  const templateMenu = [
-    {
-      label: 'Control',
-      submenu: [
-        {
-          label: 'Iniciar Sesión',
-          click(){
-              logIn();
-          }
-        },
-        {
-          label: 'Reporte de Ventas',
-          click(){
-              reporteVentas();
-          }
-        },{
-          label: 'Agregar ofertas',
-          click(){
-              AddOfferView();
-          }
-        }, {
-          label: 'Agregar Producto',
-          click(){
-              AgregarProducto();
-          }
+const templateMenu = [
+  {
+    label: 'Control',
+    submenu: [
+      {
+        label: 'Iniciar Sesión',
+        click() {
+          logIn();
+        }
+      },
+      {
+        label: 'Reporte de Ventas',
+        click() {
+          reporteVentas();
+        }
+      }, {
+        label: 'Agregar ofertas',
+        click() {
+          AddOfferView();
+        }
+      }, {
+        label: 'Agregar Producto',
+        click() {
+          AgregarProducto();
+        }
       }
-      ]
-    }
-  ];
+    ]
+  }
+];
 
-  // Exportacion de modulos 
-  module.exports = {
-    index,
-    logIn,
-    reporteVentas,
-    CreateOffer,
-    GetGames,
-    SelectGame,
-    createProduct,
-    getProducts
-  };
+// Exportacion de modulos 
+module.exports = {
+  index,
+  login,
+  reporteVentas,
+  CreateOffer,
+  GetGames,
+  SelectGame,
+  createProduct,
+  getProducts,
+  closeCP
+};

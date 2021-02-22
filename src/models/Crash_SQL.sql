@@ -32,6 +32,23 @@ USE `gg`;
 -- Estructura de tabla para la tabla `apartado`
 --
 
+CREATE TABLE `cliente` (
+  `id_cliente` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `contrasena` varchar(30) NOT NULL,
+  `ciudad` varchar(30) NOT NULL,
+  `estado` varchar(30) NOT NULL,
+  `cp` varchar(30) NOT NULL,
+  `calle` varchar(30)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `apartado`
+--
 
 CREATE TABLE `apartado` (
   `idapart` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
