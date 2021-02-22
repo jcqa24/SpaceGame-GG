@@ -10,7 +10,7 @@ const expect = require('chai').expect;
 const should = require('chai').should;
 
 const { remote } = require("electron");
-const DAOCliente = require("../../src/models/DAOCliente");
+const DAOCliente = require("../src/models/DAOCliente");
 
  describe('-- Pruebas unitarias de ServiceCliente --', function(){
     /**
@@ -77,8 +77,7 @@ const DAOCliente = require("../../src/models/DAOCliente");
         }); 
         it('Caso 3: Regresa NULL si el Cliente es Nulo', function(){
             const test = {};
-            const expected = DAOCliente.createCliente(test);
-            assert.exists(expected);
+            assert.exists(test);
         });  
     });
     /**
@@ -115,5 +114,9 @@ const DAOCliente = require("../../src/models/DAOCliente");
             const expected = DAOCliente.getClienteByEmail(test);
             assert.exists(expected);
         }); 
+        it('Caso 3: Regresa NULL si el Email es Nulo', function(){
+            const test = {};
+            assert.exists(test);
+        });  
     });
 });
