@@ -26,8 +26,6 @@ function index() {
     }
   });
 
-  window.webContents.openDevTools()
-
   const mainMenu = Menu.buildFromTemplate(templateMenu);
   Menu.setApplicationMenu(mainMenu);
 
@@ -67,7 +65,6 @@ function login(value) {
 
     CPwindow.setMenu(null);
     CPwindow.loadFile("src/views/ViewCPanel.html");
-    CPwindow.webContents.openDevTools();
     CPwindow.on('close', function () {
       window.loadFile("src/views/index.html");
       window.show();
