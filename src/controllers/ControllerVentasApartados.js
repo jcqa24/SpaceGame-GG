@@ -16,9 +16,10 @@ const apartadosTable = document.querySelector("#apartadosTable");
  * @param {ventas} tasks 
  */
 function renderVentas(tasks) {
+  ventasTable.innerHTML = "";
   tasks.forEach((t) => {
     ventasTable.innerHTML += `
-      <tr class="table-danger">
+      <tr>
         <th scope="row">${t.idventa}</th>
         <td>${t.Nom_Compra}</td>
         <td>${t.Fecha}</td>
@@ -36,9 +37,10 @@ function renderVentas(tasks) {
  * @param {apartados} tasks 
  */
 function renderApartados(tasks) {
+  apartadosTable.innerHTML = "";
   tasks.forEach((t) => {
     apartadosTable.innerHTML += `
-      <tr class="table-danger">
+      <tr>
         <th scope="row">${t.idapart}</th>
         <td>${t.nombreCliente}</td>
         <td>${t.videojuego}</td>
