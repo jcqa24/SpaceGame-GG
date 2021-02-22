@@ -4,6 +4,9 @@
  * Se encarga de manipular las funcionalidades de la vista de "ViewRegistrarse", además de 
  * solicitarinformación del estreno en la base de datos, almacena informacion de la
  * reserva.
+ * 
+ * @author David Moreno Gutiérrez
+ * @since 21/02/2021
  */
 const ServiceCliente = require("../services/ServiceCliente");
 
@@ -41,9 +44,16 @@ registrar.addEventListener("submit", async (e) => {
         calle: inputCalle.value,
       };
       const savedCliente = await ServiceCliente.createCliente(cliente);
-      window.location.replace("ViewRegistroExitoso.html");
+      muestraRegistroExitoso();
     } 
   } catch (error) {
     alert(error);
   }
 });
+
+/**
+ * Funcion que se encarga de iniciar la vista Registro Exitoso
+ */
+function muestraRegistroExitoso() {
+  window.location.replace("ViewRegistroExitoso.html");
+}

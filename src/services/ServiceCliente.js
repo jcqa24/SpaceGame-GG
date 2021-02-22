@@ -5,7 +5,7 @@
  * Tambien se encarga de la lógica de negocio de la Aplicación
  * 
  * @author David Moreno Gutiérrez
- * @
+ * @since 21/02/2021
  */
 const { remote } = require("electron");
 const DAOCliente = remote.require("../models/DAOCliente");
@@ -22,7 +22,19 @@ const createCliente = async (cliente) => {
   return a;
 };
 
+/**
+ * Recupera un Cliente especificado por su Email
+ * 
+ * @param {String} email
+ * @return {Object} Un objeto con el Cliente obtenido de la consulta, o null otro caso
+ */
+const getClienteByEmail = async (email) => {
+  cliente = await DAOClientes.getClienteById(email);
+  return cliente;
+};
+
 // Exportacion de modulos a otras capas 
 module.exports = {
-    createCliente
+    createCliente,
+    getClienteByEmail
 };

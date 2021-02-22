@@ -36,7 +36,7 @@ CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   `apellido` varchar(30) NOT NULL,
-  `correo` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `contrasena` varchar(30) NOT NULL,
   `ciudad` varchar(30) NOT NULL,
   `estado` varchar(30) NOT NULL,

@@ -4,6 +4,7 @@
  * de la base de datos
  * 
  * @author David Moreno Gutiérrez
+ * @since 21/02/2021
  */
 const { getConnection } = require("../routes/database");
 
@@ -19,20 +20,40 @@ const { getConnection } = require("../routes/database");
       const result = await conn.query("INSERT INTO cliente SET ?", cliente);
       cliente.id_cliente = result.insertId;
 
-      // Notifica al Usuario
-      new Notification({
-        title: "Electron Mysql",
-        body: "New Reserva Saved Successfully",
-      }).show();
-
       // Regresa el Objeto "cliente" creado
-      return cliente;
+      return result[0];
     } catch (error) {
       console.log(error);
     }
   };
 
+  /**
+   * Función que recupera de la base de datos TODOS los Cliente en la BD
+   * 
+   * @param {String} email
+   * @return {List} un Cliente especificado por su email en la base de datos 
+   */
+  const getClienteByEmail = async (email) => {
+    const conn = await getConnection();
+    const result = await conn.query("SELECT * FROM cliente WHERE email = ?", email);
+    return result[0];
+  };
+
+  /**
+   * Función que elimina un Cliente de la BD
+   * 
+   * @param {String} email
+   * @return {List} un Cliente especificado por su email en la base de datos 
+   */
+  const deleteAllClientes = async (id) => {
+    const conn = await getConnection();
+    const result = await conn.query("DELETE FROM cliente");
+    return result;
+  };
+
   // Exportacion de modulos a otras capas 
   module.exports = {
-    createCliente
+    createCliente,
+    getClienteByEmail,
+    deleteAllClientes
   };
